@@ -47,3 +47,18 @@
         <button type="submit" value="Create" class="btn btn-success mt-1">Guardar</button>
     </form>
 </div>
+
+@if (!string.IsNullOrEmpty(Model.ActionResultMessage))
+{
+    @section Scripts {
+        <script type="text/javascript">
+
+            Swal.fire("@Model.ActionResultMessage").then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "/@Model.Modulo/List";
+              }
+            });
+
+        </script>
+    }
+}

@@ -1,3 +1,4 @@
+using ExamenItalikaModels.Messages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text;
@@ -21,6 +22,8 @@ namespace ExamenItalika.Pages.Profesores
 
 		public readonly string Modulo = "Profesores";
 		public readonly string Accion = "Editar";
+		public string ActionResultMessage { get; set; }
+
 		public IActionResult OnGet(int id)
 		{
 			Profesor = GetProfesorByIdAsync(id).Result;
@@ -77,6 +80,7 @@ namespace ExamenItalika.Pages.Profesores
 			if (response.IsSuccessStatusCode)
 			{
 				var profesor = await response.Content.ReadFromJsonAsync<Models.DTO.Profesor>();
+				ActionResultMessage = Constantes.exitoActualizar;
 				return Page();
 			}
 			else

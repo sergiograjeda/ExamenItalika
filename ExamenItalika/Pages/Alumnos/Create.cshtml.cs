@@ -1,3 +1,4 @@
+using ExamenItalikaModels.Messages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text;
@@ -21,6 +22,7 @@ namespace ExamenItalika.Pages.Alumnos
 
 		public readonly string Modulo = "Alumnos";
 		public readonly string Accion = "Crear";
+		public string ActionResultMessage { get; set; }
 
 		public IActionResult OnGet()
 		{
@@ -78,6 +80,7 @@ namespace ExamenItalika.Pages.Alumnos
 			if (response.IsSuccessStatusCode)
 			{
 				var alumno = await response.Content.ReadFromJsonAsync<int>();
+				ActionResultMessage = Constantes.exitoCrear;
 				return Page();
 			}
 			else

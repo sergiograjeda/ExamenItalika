@@ -1,3 +1,4 @@
+using ExamenItalikaModels.Messages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text;
@@ -18,9 +19,9 @@ namespace ExamenItalika.Pages.Alumnos
 		public Models.DTO.Alumno Alumno { get; set; }
 		[BindProperty]
 		public List<Models.DTO.Profesor> Profesores { get; set; }
-
 		public readonly string Modulo = "Alumnos";
 		public readonly string Accion = "Editar";
+		public string ActionResultMessage { get; set; }
 
 		public IActionResult OnGet(int id)
 		{
@@ -78,6 +79,7 @@ namespace ExamenItalika.Pages.Alumnos
 			if (response.IsSuccessStatusCode)
 			{
 				var alumno = await response.Content.ReadFromJsonAsync<Models.DTO.Alumno>();
+				ActionResultMessage = Constantes.exitoActualizar;
 				return Page();
 			}
 			else
