@@ -1,4 +1,4 @@
-﻿namespace ExamenItalika.Models
+﻿namespace ExamenItalika.Models.Model
 {
 	public class Profesor
 	{

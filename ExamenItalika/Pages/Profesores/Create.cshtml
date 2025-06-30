@@ -1,0 +1,49 @@
+﻿@page
+@model ExamenItalika.Pages.Profesores.CreateModel
+@{
+}
+<div class="row">
+    <div class="col-12">
+        <h1>@Model.Accion @Model.Modulo</h1>
+    </div>
+</div>
+<div class="container">
+    <form method="post">
+        <input asp-for="Profesor.Id" type="hidden" value="@Model.Profesor.Id" />
+        <div class="mb-3">
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h5>Crear Registro Nuevo</h5>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-3">
+                    <label>Identificación</label>
+                    <input asp-for="Profesor.Identificacion" class="form-control" type="text" placeholder="Identificación" required />
+                </div>
+                <div class="col-3">
+                    <label>Nombre</label>
+                    <input asp-for="Profesor.Nombre" class="form-control" type="text" placeholder="Nombre" required />
+                </div>
+                <div class="col-3">
+                    <label>Apellido</label>
+                    <input asp-for="Profesor.Apellido" class="form-control" type="text" placeholder="Apellido" required />
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <label>Escuela</label>
+                    <select asp-for="Profesor.EscuelaId" class="form-select" required>
+                        <option selected>Selecciona una Escuela</option>
+                        @foreach (var item in Model.Escuelas)
+                        {
+                            <option value="@item.Id">@item.Nombre</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-secondary mt-1" asp-area="" asp-page="/@Model.Modulo/List">Regresar</a>
+        <button type="submit" value="Create" class="btn btn-success mt-1">Guardar</button>
+    </form>
+</div>

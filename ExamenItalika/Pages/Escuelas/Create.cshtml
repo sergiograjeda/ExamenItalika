@@ -1,0 +1,37 @@
+﻿@page
+@model ExamenItalika.Pages.Escuelas.CreateModel
+@{
+}
+<div class="row">
+    <div class="col-12">
+        <h1>@Model.Accion @Model.Modulo</h1>
+    </div>
+</div>
+<div class="container">
+    <form method="post">
+        <input asp-for="Escuela.Id" type="hidden" value="@Model.Escuela.Id" />
+        <div class="mb-3">
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h5>Crear Registro Nuevo</h5>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-3">
+                    <label>Codigo</label>
+                    <input asp-for="Escuela.Codigo" class="form-control" type="text" placeholder="Codigo" required />
+                </div>
+                <div class="col-3">
+                    <label>Nombre</label>
+                    <input asp-for="Escuela.Nombre" class="form-control" type="text" placeholder="Nombre" required />
+                </div>
+                <div class="col-3">
+                    <label>Descripción</label>
+                    <input asp-for="Escuela.Descripcion" class="form-control" type="text" placeholder="Descripción" required />
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-secondary mt-1" asp-area="" asp-page="/@Model.Modulo/List">Regresar</a>
+        <button type="submit" value="Create" class="btn btn-success mt-1">Guardar</button>
+    </form>
+</div>

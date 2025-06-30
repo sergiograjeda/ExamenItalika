@@ -1,4 +1,4 @@
-﻿namespace ExamenItalika.Models
+﻿namespace ExamenItalika.Models.DTO
 {
 	public class Alumno
 	{
@@ -7,7 +7,7 @@
 		public string Nombre { get; set; }
 		public string Apellido { get; set; }
 		public DateTime FechaNacimiento { get; set; }
+		public string? ProfesorNombre { get; set; }
 		public int ProfesorId { get; set; }
-		public Profesor Profesor { get; set; }
 	}
 }
